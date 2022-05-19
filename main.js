@@ -1,8 +1,26 @@
-// 1. Date() Initialize objects (keys: localtime values: suggested cups of water )
-// 2. Initialize a variable and assign it the value of "local hour"
+function closeAlertBox(){
+    alertBox = document.getElementById("alertBox");
+    alertClose = document.getElementById("alertClose");
+    alertBox.style.visibility = "hidden";
+    alertClose.style.visibility = "hidden";
+}
+
+window.alert = function(msg){
+    var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
+    alertBox = document.createElement("div");
+    document.body.appendChild(alertBox);
+    alertBox.id = id;
+    alertBox.innerHTML = msg;
+    alertClose = document.createElement("div");
+    alertClose.id = closeId;
+    alertClose.innerHTML = "x";
+    alertBox.appendChild(alertClose);
+    alertBox.style.visibility = "visible";
+    alertClose.style.visibility = "visible";
+    alertClose.onclick = closeAlertBox;
+};
 
 // chrome.runtime.onStartup.addListener(function() {
-    // alert('hi');
     const localHours = (new Date()).getHours();
     console.log(localHours);
 
