@@ -1,30 +1,34 @@
-function closeAlertBox(){
-    alertBox = document.getElementById("alertBox");
-    alertClose = document.getElementById("alertClose");
-    alertBox.style.visibility = "hidden";
-    alertClose.style.visibility = "hidden";
+// function closeAlertBox(){
+//     alertBox = document.getElementById("alertBox");
+//     alertClose = document.getElementById("alertClose");
+//     alertBox.style.visibility = "hidden";
+//     alertClose.style.visibility = "hidden";
+// }
+
+// window.alert = function(msg){
+//     var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
+//     alertBox = document.createElement("div");
+//     document.body.appendChild(alertBox);
+//     alertBox.id = id;
+//     alertBox.innerHTML = msg;
+//     alertClose = document.createElement("div");
+//     alertClose.id = closeId;
+//     alertClose.innerHTML = "x";
+//     alertBox.appendChild(alertClose);
+//     alertBox.style.visibility = "visible";
+//     alertClose.style.visibility = "visible";
+//     alertClose.onclick = closeAlertBox;
+// };
+function addZero(min) {
+  if (min < 10) {min = "0" + min}
+  return min;
 }
-
-window.alert = function(msg){
-    var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
-    alertBox = document.createElement("div");
-    document.body.appendChild(alertBox);
-    alertBox.id = id;
-    alertBox.innerHTML = msg;
-    alertClose = document.createElement("div");
-    alertClose.id = closeId;
-    alertClose.innerHTML = "x";
-    alertBox.appendChild(alertClose);
-    alertBox.style.visibility = "visible";
-    alertClose.style.visibility = "visible";
-    alertClose.onclick = closeAlertBox;
-};
-
 // chrome.runtime.onStartup.addListener(function() {
     const localHours = (new Date()).getHours();
     console.log(localHours);
 
-    const localMinutes = (new Date()).getMinutes();
+    let localMinutes = (new Date()).getMinutes();
+    localMinutes = addZero(localMinutes)
     console.log(localMinutes);
 
     let thismany = localHours * 0.5;
@@ -34,24 +38,22 @@ window.alert = function(msg){
     // whenever you open a website
     alert(`Hi, by ${localHours}:${localMinutes}, the Mayo Clinic recommends that you have had about ${thismany} cup(s) of water.`)
 
-    // 
+    //
     let keepTrack = 0
     let whichPrompt = 0;
 
     setInterval(function() {
-
       whichPrompt++;
-      keepTrack+= 30;
+      keepTrack+= 20;
       if (whichPrompt % 2 === 1) {
           alert(`Hey, you've been sitting in front of your desk for ${keepTrack} seconds already. GO STRETCH!`);
       } else {
 
         let scale = Number(prompt("From a scale of 1 to 5, how stressed out do you feel right now?"));
         if (scale >= 3) {
-          let second = 10;
           alert("Let's start a 5 second meditation session. Take a deep breath in and hold for 5 seconds.");
           setTimeout(function() {
-            alert("Now slowly exhale... Good job! Now get back to work!!");
+            alert("Now slowly exhale... Good job! Now GET BACK TO WORK!!");
           }, 5 * 1000)
         } else {
           alert("You've got this under control. Keep WORKING!");
