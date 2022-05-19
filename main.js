@@ -8,7 +8,6 @@
 
     const localMinutes = (new Date()).getMinutes();
     console.log(localMinutes);
-    // When localMinutes === 0, start counting the amount of time the person is on browser
 
     let thismany = localHours * 0.5;
 
@@ -40,20 +39,6 @@
     } else {
         alert("You've got this under control. Keep WORKING!");
     }
-
-
-
-
-//     let ageStr = prompt('How old are you?');
-// let age = Number(ageStr);
-
-// let feedback = age >= 16 ?
-//     'You're eligible to join.' :
-//     'You must be at least 16 year old to join.';
-
-// alert(feedback);
-
-    // let everyTime = 0
 
 // })
 // 1. Single Digit Minute Situation
