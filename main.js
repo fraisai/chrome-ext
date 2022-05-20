@@ -44,7 +44,7 @@ function addZero(min) {
 
     setInterval(function() {
       whichPrompt++;
-      keepTrack+= 20;
+      keepTrack+= 15;
       if (whichPrompt % 2 === 1) {
           alert(`Hey, you've been sitting in front of your desk for ${keepTrack} seconds already. GO STRETCH!`);
       } else {
@@ -59,7 +59,7 @@ function addZero(min) {
           alert("You've got this under control. Keep WORKING!");
         } 
     }
-    }, 20 * 1000);
+    }, 15 * 1000);
 
 
     // ORIGINAL CODE
